@@ -6,7 +6,6 @@ import { setStoryTitleFilter, setStoryTypeFilter } from 'src/app/state/stories/s
 @Component({
   selector: 'app-story-filter',
   templateUrl: './story-filter.component.html',
-  styleUrls: ['./story-filter.component.scss'],
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [

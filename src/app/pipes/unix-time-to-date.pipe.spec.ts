@@ -15,6 +15,6 @@ describe('UnixTimeToDatePipe', () => {
     const unixTime = 1644998400;
     const result = pipe.transform(unixTime);
     expect(result instanceof Date).toBeTruthy();
-    expect(result.getTime()).toEqual(unixTime * 1000); // Ensure the time is in milliseconds
+    expect(result.getTime()).toEqual(unixTime * 1000);
   });
 });
