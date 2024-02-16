@@ -49,7 +49,7 @@ export class FrontPageComponent implements  OnInit {
     this.store.dispatch(increasePagination());
   }
 
-  toggleDarkMode() {
+  toggleDarkMode(): void {
     this.isDarkMode = this.themeService.isDarkMode();
     this.isDarkMode
       ? this.themeService.updateTheme('light-mode')
