@@ -9,6 +9,7 @@ import { DisplayedStoryDetails, Status, Story } from 'src/app/models';
 import { Observable, map, of } from 'rxjs';
 import { StoryComponent } from 'src/app/components/story/story.component';
 import { JobComponent } from 'src/app/components/job/job.component';
+import { ThemeService } from 'src/app/services/theme.service';
 
 @Component({
   selector: 'app-front-page',
@@ -18,6 +19,7 @@ import { JobComponent } from 'src/app/components/job/job.component';
 })
 export class FrontPageComponent implements  OnInit {
   private store = inject(Store);
+  private themeService = inject(ThemeService);
 
   readonly throttle = 300;
   readonly scrollDistance = 1;
@@ -28,7 +30,14 @@ export class FrontPageComponent implements  OnInit {
 
   readonly isLoading$ = this.store
   .select(selectLoadingStatus)
-  .pipe(map((isLoading: any) => isLoading === Status.loading));
+  .pipe(map((isLoading: Status) => isLoading === Status.loading));
+
+  isDarkMode = false;
+
+  constructor() {
+    this.themeService.initTheme();
+    this.isDarkMode = this.themeService.isDarkMode();
+  }
 
 
   ngOnInit(): void {
@@ -41,6 +50,13 @@ export class FrontPageComponent implements  OnInit {
       this.store.dispatch(startScrolling());
     }, 200);
     this.store.dispatch(increasePagination());
+  }
+
+  toggleDarkMode() {
+    this.isDarkMode = this.themeService.isDarkMode();
+    this.isDarkMode
+      ? this.themeService.updateTheme('light-mode')
+      : this.themeService.updateTheme('dark-mode');
   }
 
   private mapStoriesWithComponents(stories: Story[]): Observable<

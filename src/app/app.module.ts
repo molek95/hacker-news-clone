@@ -9,9 +9,13 @@ import { StoryEffects } from './state/stories/story.effects';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,10 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
     EffectsModule.forRoot([StoryEffects]),
     MatProgressSpinnerModule,
     InfiniteScrollModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSlideToggleModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
