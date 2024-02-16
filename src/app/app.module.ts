@@ -30,7 +30,7 @@ import { localStorageSyncReducer } from './state/meta.reducer';
     BrowserAnimationsModule,
     StoreModule.forRoot(
       { stories: storyReducer },
-      { metaReducers: [localStorageSyncReducer] }
+      // { metaReducers: [localStorageSyncReducer] }
     ),
     EffectsModule.forRoot([StoryEffects]),
     MatProgressSpinnerModule,
