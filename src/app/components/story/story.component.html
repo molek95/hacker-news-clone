@@ -1,0 +1,35 @@
+<mat-card
+  *ngIf="(isHidden$ | async) === false"
+  class="story-card"
+  [ngClass]="{ 'mark-as-favourite': (isFavourite$ | async) }">
+  <mat-card-header>
+    <mat-card-title>
+      <b>{{ type | uppercase }}</b>
+      <p>{{ title }}</p>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <span
+        >{{ score }} points by <i>{{ by }}</i
+        >, {{ time | unixTimeToDate | date: 'short' }}</span
+      >
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions>
+    <button
+      *ngIf="(isFavourite$ | async) === false; else unmarkFavourite"
+      mat-button
+      (click)="addToFavourites()">
+      MARK AS FAVOURITE
+    </button>
+    <button mat-button (click)="hideStory()">HIDE</button>
+    <button mat-raised-button color="primary" (click)="navigateToUrl()">
+      OPEN DETAILS
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<ng-template #unmarkFavourite>
+  <button mat-button (click)="removeFromFavourites()">
+    REMOVE FROM FAVOURITES
+  </button>
+</ng-template>

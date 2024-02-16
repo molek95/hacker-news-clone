@@ -9,3 +9,5 @@ export interface Story {
     type : string,
     url : string
 }
+
+export type DisplayedStoryDetails = Omit<Story, 'kids'>

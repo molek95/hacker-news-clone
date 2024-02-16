@@ -10,6 +10,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,8 @@ import { HttpClientModule } from '@angular/common/http';
       { stories: storyReducer }
     ),
     EffectsModule.forRoot([StoryEffects]),
+    MatProgressSpinnerModule,
+    InfiniteScrollModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,20 @@
+<mat-card class="story-card">
+    <mat-card-header>
+        <mat-card-title>
+        <b>{{ type | uppercase }}</b>
+        <p>{{ title }}</p>
+        </mat-card-title>
+        <mat-card-subtitle>
+        <span
+            >{{ score }} points by <i>{{ by }}</i
+            >, {{ time | unixTimeToDate | date: 'short' }}</span
+        >
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="navigateToUrl()">
+        APPLY NOW!
+        </button>
+    </mat-card-actions>
+</mat-card>
+  

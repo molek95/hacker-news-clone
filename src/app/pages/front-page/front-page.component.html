@@ -1,3 +1,13 @@
-<div *ngFor="let post of stories$ | async">
-    {{post.id}}
+<div
+  infiniteScroll
+  [infiniteScrollDistance]="scrollDistance"
+  [infiniteScrollThrottle]="throttle"
+  (scrolled)="onScrollDown()">
+  <ng-container *ngIf="(stories$ | async) as stories">
+    <div *ngFor="let story of stories | async">
+      <ng-container
+        *ngComponentOutlet="story.component; inputs: story.inputs"></ng-container>
+    </div>
+  </ng-container>
+  <mat-spinner *ngIf="isLoading$ | async" style="margin: 0 auto"></mat-spinner>
 </div>
