@@ -38,3 +38,13 @@ export const loadSotriesFailure = createAction(
 export const startScrolling = createAction('Start scrolling');
 
 export const increasePagination = createAction('Increase pagination');
+
+export const setStoryTitleFilter = createAction(
+    'Set Title Filter',
+    props<{ titleFilter: string }>()
+);
+
+export const setStoryTypeFilter = createAction(
+    '[Story] Set Type Filter',
+    props<{ typeFilter: string }>()
+);

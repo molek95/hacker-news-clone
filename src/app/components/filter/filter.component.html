@@ -1,0 +1,11 @@
+<form [formGroup]="filterForm">
+    <mat-form-field>
+        <mat-label>Search by title</mat-label>
+        <input matInput type="text" formControlName="titleFilter">
+    </mat-form-field>
+    <mat-radio-group formControlName="typeFilter">
+        <mat-radio-button value="all">ALL</mat-radio-button>
+        <mat-radio-button value="story">STORY</mat-radio-button>
+        <mat-radio-button value="job">JOB</mat-radio-button>
+    </mat-radio-group>
+</form>

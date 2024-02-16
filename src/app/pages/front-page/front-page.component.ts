@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, OnInit, Type, inject } from '@angul
 import { Store } from '@ngrx/store';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { increasePagination, loadStoryById, loadTopStoryIds, startScrolling } from 'src/app/state/stories/story.actions';
-import { selectAllStories, selectLoadingStatus } from 'src/app/state/stories/story.selector';
+import { selectAllStories, selectFilteredStories, selectLoadingStatus } from 'src/app/state/stories/story.selector';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CommonModule } from '@angular/common';
 import { DisplayedStoryDetails, Status, Story } from 'src/app/models';
@@ -24,7 +24,7 @@ export class FrontPageComponent implements  OnInit {
   readonly throttle = 300;
   readonly scrollDistance = 1;
 
-  readonly stories$ = this.store.select(selectAllStories).pipe(
+  readonly stories$ = this.store.select(selectFilteredStories).pipe(
     map(stories => this.mapStoriesWithComponents(stories))
   )
 

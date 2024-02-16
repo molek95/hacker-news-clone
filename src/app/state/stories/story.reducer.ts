@@ -10,6 +10,8 @@ import {
   loadTopStoryIds,
   removeStoryFromFavourite,
   startScrolling,
+  setStoryTitleFilter,
+  setStoryTypeFilter,
 } from './story.actions';
 import { Story } from 'src/app/models/story.model';
 import { Status } from 'src/app/models/status.enum';
@@ -24,6 +26,10 @@ export interface StoryState {
     from: number;
     to: number;
   };
+  filter: {
+    titleFilter: string;
+    typeFilter: string;
+  }
   error?: string | null;
 }
 
@@ -37,6 +43,10 @@ export const initialState: StoryState = {
     from: 0,
     to: 20,
   },
+  filter: {
+    titleFilter: '',
+    typeFilter:  ''
+  }
 };
 
 export const storyReducer = createReducer(
@@ -75,7 +85,7 @@ export const storyReducer = createReducer(
     error,
     status: Status.error,
   })),
-  
+
   on(startScrolling, state => ({ ...state, status: Status.loading })),
   on(increasePagination, state => ({
     ...state,
@@ -83,5 +93,8 @@ export const storyReducer = createReducer(
       from: state.pagination.to,
       to: state.pagination.to + 20,
     },
-  }))
+  })),
+
+  on(setStoryTitleFilter, (state, { titleFilter }) => ({...state, filter: {...state.filter, titleFilter}})),
+  on(setStoryTypeFilter, (state, { typeFilter }) => ({...state, filter: {...state.filter, typeFilter}}))
 );
