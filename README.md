@@ -6,6 +6,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 `https://hacker-news.firebaseio.com/v0/topstories.json` is used instead of `/newstories` because it contains different type of stories (story, job)
 
+npm version: 9.8.1
+node version: 18.18.1
+
 ## Project Setup
 
 Install the required dependencies with ``` npm i ```
