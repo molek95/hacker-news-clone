@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FilterComponent } from '../filter/filter.component';
 import { Store } from '@ngrx/store';
 import { setStoryTitleFilter, setStoryTypeFilter } from 'src/app/state/stories/story.actions';
@@ -8,6 +8,7 @@ import { setStoryTitleFilter, setStoryTypeFilter } from 'src/app/state/stories/s
   templateUrl: './story-filter.component.html',
   styleUrls: ['./story-filter.component.scss'],
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     FilterComponent
   ]

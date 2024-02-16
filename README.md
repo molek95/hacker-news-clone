@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
+## Assumption
+
+`https://hacker-news.firebaseio.com/v0/topstories.json` is used instead of `/newstories` because it contains different type of stories (story, job)
+
+## Project Setup
+
+Install the required dependencies with ``` npm i ```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

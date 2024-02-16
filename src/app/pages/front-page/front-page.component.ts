@@ -1,10 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, Type, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { increasePagination, loadStoryById, loadTopStoryIds, startScrolling } from 'src/app/state/stories/story.actions';
-import { selectAllStories, selectFilteredStories, selectLoadingStatus } from 'src/app/state/stories/story.selector';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { CommonModule } from '@angular/common';
+import { selectFilteredStories, selectLoadingStatus } from 'src/app/state/stories/story.selector';
 import { DisplayedStoryDetails, Status, Story } from 'src/app/models';
 import { Observable, map, of } from 'rxjs';
 import { StoryComponent } from 'src/app/components/story/story.component';

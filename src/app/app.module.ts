@@ -16,8 +16,8 @@ import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { FilterComponent } from './components/filter/filter.component';
 import { StoryFilterComponent } from './components/story-filter/story-filter.component';
+import { localStorageSyncReducer } from './state/meta.reducer';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,8 @@ import { StoryFilterComponent } from './components/story-filter/story-filter.com
     HttpClientModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(
-      { stories: storyReducer }
+      { stories: storyReducer },
+      { metaReducers: [localStorageSyncReducer] }
     ),
     EffectsModule.forRoot([StoryEffects]),
     MatProgressSpinnerModule,
